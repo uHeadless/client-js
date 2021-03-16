@@ -1,11 +1,15 @@
 {
-  "name": "@uheadless/rest",
+  "name": "@uheadless/client",
   "version": "0.0.1",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "types": "./dist/index.d.ts",
+  "registry": {
+    "type": "vsc",
+    "url": "git://github.com/uHeadless/client-js.git"
+  },
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",

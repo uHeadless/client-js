@@ -1,4 +1,4 @@
-export default class UHeadlessRestClient {
+export default class UHeadlessClient {
   constructor (
     public token: string,
     public cdnUrl: string
