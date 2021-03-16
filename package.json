@@ -6,9 +6,12 @@
     "dist"
   ],
   "types": "./dist/index.d.ts",
-  "registry": {
+  "repository": {
     "type": "vsc",
     "url": "git://github.com/uHeadless/client-js.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "test": "jest",

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class UHeadlessRestClient {
+class UHeadlessClient {
     constructor(token, cdnUrl) {
         this.token = token;
         this.cdnUrl = cdnUrl;
@@ -30,5 +30,5 @@ class UHeadlessRestClient {
         });
     }
 }
-exports.default = UHeadlessRestClient;
+exports.default = UHeadlessClient;
 //# sourceMappingURL=index.js.map
