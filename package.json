@@ -1,6 +1,6 @@
 {
   "name": "@uheadless/client",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "files": [
     "dist"
@@ -22,8 +22,7 @@
     "compile": "tsc --build tsconfig.build.json",
     "prepublish": "yarn build"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^14.14.31",
     "jest": "^26.6.3",
