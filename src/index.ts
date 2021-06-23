@@ -9,8 +9,8 @@ export default class UHeadlessClient {
 
     // Set default
     url.searchParams.set('token', this.token)
-    url.searchParams.set('depth', '6')
-    url.searchParams.set('lang', 'en-us')
+    url.searchParams.set('depth', options?.depth || '6')
+    url.searchParams.set('lang', options?.lang || 'en-us')
 
     for (const key in options) {
       url.searchParams.set(key, options[key])
@@ -19,14 +19,16 @@ export default class UHeadlessClient {
     return url
   }
 
-  fetch (options: any = {}) {
+  fetch (options: any = {},  method: string = 'GET', body: any = null) {
     const url = this.getUrl(options)
 
     return fetch(url.toString(), {
-      method: 'GET',
+      method,
       headers: {
-        'accept': 'application/json'
-      }
+        'accept': 'application/json',
+        'content-type': 'application/json'
+      },
+      body: method !== 'GET' ? JSON.stringify(body) : undefined
     }).then(async res => {
       if (res.status > 299 || res.status < 200) {
         throw new Error(await res.text())
@@ -34,5 +36,9 @@ export default class UHeadlessClient {
 
       return res.json()
     })
+  }
+
+  query (query: any = {}, options: any = {}) {
+    return this.fetch(options, 'POST', query)
   }
 }
