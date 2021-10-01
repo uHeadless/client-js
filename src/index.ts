@@ -5,12 +5,16 @@ export default class UHeadlessClient {
   ) {}
 
   private getUrl (options: any): URL {
-    const url = new URL(`${this.cdnUrl}/api`)
+    const url = new URL(`${this.cdnUrl}/api${options.path || ''}`)
 
     // Set default
     url.searchParams.set('token', this.token)
     url.searchParams.set('depth', options?.depth || '6')
     url.searchParams.set('lang', options?.lang || 'en-us')
+
+    if (options.path) {
+      delete options['path']
+    }
 
     for (const key in options) {
       url.searchParams.set(key, options[key])
