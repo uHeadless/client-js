@@ -26,15 +26,18 @@ export default class UHeadlessClient {
   fetch (options: any = {},  method: string = 'GET', body: any = null) {
     const url = this.getUrl(options)
 
-    return fetch(url.toString(), {
+    const fetchOptions = {
       method,
       headers: {
         'accept': 'application/json',
         'content-type': 'application/json'
       },
       body: method !== 'GET' ? JSON.stringify(body) : undefined
-    }).then(async res => {
+    }
+
+    return fetch(url.toString(), fetchOptions).then(async res => {
       if (res.status > 299 || res.status < 200) {
+        console.log('[uHeadless Fetch Error]', `[${res.status}]`, url.toString(), fetchOptions)
         throw new Error(await res.text())
       }
 
