@@ -23,14 +23,15 @@ export default class UHeadlessClient {
     return url
   }
 
-  fetch (options: any = {},  method: string = 'GET', body: any = null) {
+  fetch (options: any = {},  method: string = 'GET', body: any = null, headers: Record<string, string> = {}) {
     const url = this.getUrl(options)
 
     const fetchOptions = {
       method,
       headers: {
         'accept': 'application/json',
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        ...headers
       },
       body: method !== 'GET' ? JSON.stringify(body) : undefined
     }
