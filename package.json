@@ -1,6 +1,6 @@
 {
   "name": "@uheadless/client",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "main": "dist/index.js",
   "files": [
     "dist"
