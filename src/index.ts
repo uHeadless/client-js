@@ -10,7 +10,6 @@ export default class UHeadlessClient {
     // Set default
     url.searchParams.set('token', this.token)
     url.searchParams.set('depth', options?.depth || '6')
-    url.searchParams.set('lang', options?.lang || 'en-us')
 
     if (options.path) {
       delete options['path']
